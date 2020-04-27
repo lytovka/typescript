@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/search.css';
+import '../styles/search.css';
 
 type SearchProps = {
     clickHandler: (event: React.ChangeEvent<HTMLInputElement>) => void,
