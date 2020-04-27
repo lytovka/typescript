@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Search from './components/Search';
 import CountryList from './components/CountryList';
+import Navbar from './components/Navbar';
 
 const App: React.FC = () => {
 
@@ -12,6 +13,7 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
+      <Navbar />
       <Search clickHandler={clickHandler} />
       <CountryList countryName={searchItem}/>
     </React.Fragment>
