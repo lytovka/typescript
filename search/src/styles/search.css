@@ -1,0 +1,16 @@
+.search-container{
+    margin: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-element{
+    width: 500px;
+}
+
+input[type=text]{
+    width: 80%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
