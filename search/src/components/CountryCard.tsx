@@ -1,20 +1,34 @@
 import React from 'react';
+import { ICountry } from '../interfaces/country';
 import '../styles/card.css';
 
 type CountryCardProps = {
-    name: string;
-    flag: string
+    country: ICountry,
+    clickOnCard(c: ICountry): void
 }
 
-const CountryList: React.FC<CountryCardProps> = ({ name, flag }) => {
+const CountryList: React.FC<CountryCardProps> = ({ country, clickOnCard }) => {
+
+    const cardMouseClickHandler = (event: React.MouseEvent, c: ICountry) => {
+        // event.preventDefault();
+        console.log(c);
+        clickOnCard(c);
+    }
+
+    const reduceCountryName = (name:string):string => {
+        if(name.length > 20){
+            return name.slice(0,20) + '...'
+        }
+        else return name
+    }
 
     return (
         <React.Fragment>
-            <div className="card-container">
-                <div className="card-body">
-                    <img src={flag} alt="flag" />
+            <div className='card-container'>
+                <div className='card-body' onClick={(event) => cardMouseClickHandler(event, country)}>
+                    <img src={country.flag} alt='flag' />
                     <hr />
-                    <li>{name}</li>
+                    <li>{reduceCountryName(country.name)}</li>
                 </div>
             </div>
         </React.Fragment>

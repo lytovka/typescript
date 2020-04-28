@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/search.css';
 
 type SearchProps = {
-    clickHandler: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    clickHandler(event: React.ChangeEvent<HTMLInputElement>):void,
 }
 
 const Search: React.FC<SearchProps> = ({clickHandler}) => {  
