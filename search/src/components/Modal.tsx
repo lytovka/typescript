@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ICountry } from '../interfaces/country';
 
 import '../styles/modal.css';
@@ -10,9 +10,6 @@ type ModalProps = {
 }
 
 const Modal: React.FC<ModalProps> = ({ flag, closeModal, selectedCountry }) => {
-
-    // const [flag, setFlag] = useState<Boolean>(true);
-
 
     console.log(flag, selectedCountry);
 
@@ -27,6 +24,21 @@ const Modal: React.FC<ModalProps> = ({ flag, closeModal, selectedCountry }) => {
                                 <span className="modal-close" onClick={(e) => closeModal(e)}>&times;</span>
                             </div>
                             <div className="modal-body">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, dolores?</p>
                             </div>

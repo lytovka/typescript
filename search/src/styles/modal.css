@@ -1,3 +1,8 @@
+body .modal{
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 .modal-overlay{
     position: fixed;
     top:0;
@@ -5,6 +10,7 @@
     left:0;
     bottom: 0;
     background: rgba(0,0,0,.5);
+
 }
 
 .modal-window{
@@ -12,6 +18,7 @@
     border-radius: 5px;
     background: #fff;
     margin: 100px auto;
+    overflow-y: auto;
 }
 
 .modal-header{
@@ -32,6 +39,8 @@
 
 .modal-body{
     padding: 10px;
+    height: 250px;
+    overflow: auto;
 }
 
 .modal-body p { 

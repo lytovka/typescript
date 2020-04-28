@@ -10,14 +10,13 @@ type CountryCardProps = {
 const CountryList: React.FC<CountryCardProps> = ({ country, clickOnCard }) => {
 
     const cardMouseClickHandler = (event: React.MouseEvent, c: ICountry) => {
-        // event.preventDefault();
         console.log(c);
         clickOnCard(c);
     }
 
-    const reduceCountryName = (name:string):string => {
-        if(name.length > 20){
-            return name.slice(0,20) + '...'
+    const reduceCountryName = (name: string): string => {
+        if (name.length > 20) {
+            return name.slice(0, 20) + '...'
         }
         else return name
     }
@@ -26,9 +25,15 @@ const CountryList: React.FC<CountryCardProps> = ({ country, clickOnCard }) => {
         <React.Fragment>
             <div className='card-container'>
                 <div className='card-body' onClick={(event) => cardMouseClickHandler(event, country)}>
-                    <img src={country.flag} alt='flag' />
-                    <hr />
-                    <li>{reduceCountryName(country.name)}</li>
+                    <div className="card-body-container">
+                        <div className="card-body-item">
+                            <img src={country.flag} alt='flag' />
+                        </div>
+                        <div className="card-body-item">
+                            <hr />
+                            <li>{reduceCountryName(country.name)}</li>
+                        </div>
+                    </div>
                 </div>
             </div>
         </React.Fragment>
