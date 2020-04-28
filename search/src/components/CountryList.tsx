@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import CountryCard from './CountryCard';
 import { ICountry } from '../interfaces/country';
 
@@ -6,30 +6,22 @@ import '../styles/countryList.css';
 
 type CountryListProps = {
     filteredList: ICountry[],
-    handleClick(country: ICountry):void,
-    selected: ICountry
+    handleClick(country: ICountry): void,
+    selected: ICountry | null
 }
 
 const CountryList: React.FC<CountryListProps> = ({ filteredList, handleClick, selected }) => {
 
     const listLen: number = filteredList.length;
 
-    if (listLen > 1 && listLen < 50) {
+    if (listLen >= 1 && listLen < 50) {
         return (
             <React.Fragment>
                 <ul className='list-container'>
                     {filteredList.map(c =>
-                        <CountryCard key={c.name}  country={c} clickOnCard={(c) => handleClick(c)}/>
+                        <CountryCard key={c.name} country={c} clickOnCard={(c) => handleClick(c)} />
                     )}
                 </ul>
-            </React.Fragment>
-        )
-    }
-
-    else if (listLen === 1 || selected.name !== '') {
-        return (
-            <React.Fragment>
-                <h1>Bingo</h1>
             </React.Fragment>
         )
     }

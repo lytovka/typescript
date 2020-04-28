@@ -2,24 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Search from './components/Search';
 import CountryList from './components/CountryList';
 import Navbar from './components/Navbar';
+import Modal from './components/Modal';
 
 import { ICountry } from './interfaces/country';
 
 import serviceCountries from './services/services';
 
-const DefaultSelectedCountry: ICountry = {
-  name: '',
-  capital: '',
-  flag: '',
-  population: -1,
-  latlng: []
-};
-
 const App: React.FC = () => {
 
   const [searchItem, setSearchItem] = useState<string>('');
   const [countryList, setCountryList] = useState<ICountry[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<ICountry>(DefaultSelectedCountry);
+  const [selectedCountry, setSelectedCountry] = useState<ICountry | null>(null);
+
+  const [flag, setFlag] = useState<boolean>(true);
 
   const filteredList: ICountry[] = countryList.filter(c => c.name.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase()));
 
@@ -32,24 +27,30 @@ const App: React.FC = () => {
     fetchData();
   }, []);
 
-  const clickHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if(event.target.value === ''){
-      setSelectedCountry(DefaultSelectedCountry);
+  const searchInputClickHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === '') {
+      setSelectedCountry(null);
     }
     setSearchItem(event.target.value);
-    console.log(searchItem)
   }
 
-  const handleClick = (card: ICountry) => {
-    // setSelectedCountry(card[0]);
-    setSearchItem(card.name);
+  const cardClickHandler = (card: ICountry): void => {
+    setSelectedCountry(card);
+    setFlag(true);
+  }
+
+  const closeModal = (event: React.MouseEvent): void => {
+    event.preventDefault();
+    setSelectedCountry(null);
+    setFlag(false);
   }
 
   return (
     <React.Fragment>
       <Navbar />
-      <Search clickHandler={clickHandler} />
-      <CountryList filteredList={filteredList} handleClick={handleClick} selected={selectedCountry}/>
+      <Search clickHandler={searchInputClickHandler} />
+      <CountryList filteredList={filteredList} handleClick={cardClickHandler} selected={selectedCountry} />
+      <Modal flag={flag} closeModal={closeModal} selectedCountry={selectedCountry} />
     </React.Fragment>
   );
 }
