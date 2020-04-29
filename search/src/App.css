@@ -1,12 +1,1 @@
-body{
-    margin: 0;
-    padding: 0;
-    padding-right: 15px; /* Avoid width reflow */
-    overflow-y: hidden;
-}
 
-body.modal-overlay{
-    height: 100vh;
-    overflow-y: hidden;
-    padding-right: 15px; /* Avoid width reflow */
-}

@@ -50,6 +50,7 @@ const App: React.FC = () => {
       <Navbar />
       <Search clickHandler={searchInputClickHandler} />
       <CountryList filteredList={filteredList} handleClick={cardClickHandler} selected={selectedCountry} />
+      {/* {flag && selectedCountry ? <Modal closeModal={closeModal} selectedCountry={selectedCountry} /> : <></>} */}
       <Modal flag={flag} closeModal={closeModal} selectedCountry={selectedCountry} />
     </React.Fragment>
   );
