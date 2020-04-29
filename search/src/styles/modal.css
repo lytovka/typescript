@@ -7,37 +7,31 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* TRANSITIONS */
-
-.my-modal-enter {
-  transform: translateY(100px);
-}
-.my-modal-enter-active {
-  opacity: 1;
-  transition: transform 0.2s ease-in;
-}
-.my-modal-exit {
-  opacity: 1;
-  transform: translateY(-200px);
-
-}
-.my-modal-exit-active {
-  opacity: 0;
-  transition: transform 0.2s ease-out;
+@keyframes modalFade {
+  from {
+    transform: translateY(-200px);
+    /* transition: transform 0.2s ease-in; */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(200px);
+    transition: transform 0.2s ease-in;
+    opacity: 1;
+  }
 }
 
-/* .modal .modal-window {
-  transform: translateY(100px);
-} */
+.modal-window {
+  animation-name: modalFade;
+  animation-duration: 0.5s;
+}
 
 .modal-window {
   width: 600px;
   border-radius: 5px;
   background: #fff;
   margin: 0 auto;
+  transform: translateY(200px);
   overflow-y: auto;
-  /* transform: translateY(-200px); */
-  /* transition: transform 0.2s ease-in; */
 }
 
 .modal-header {
