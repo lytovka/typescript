@@ -22,8 +22,9 @@
   align-items: center;
 }
 
-.card-body-item{
-    width: inherit;
+.card-body-item {
+  width: inherit;
+  padding: 10px 0;
 }
 
 img {
@@ -34,7 +35,8 @@ img {
   width: 10rem;
 }
 
-li {
+.card-body-item li {
+  font-size: 2rem;
   list-style: none;
   text-align: center;
 }

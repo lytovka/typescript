@@ -5,14 +5,14 @@ const Navbar: React.FC = () => {
     return (
         <React.Fragment>
             <nav>
-                <ul>
-                    <li>
+                <ul className="navbar-links">
+                    <li className="navbar-link">
                         <a href="/">Home</a>
                     </li>
-                    <li>
+                    <li className="navbar-link">
                         <a href="/about">About</a>
                     </li>
-                    <li>
+                    <li className="navbar-link">
                         <a href="More">More</a>
                     </li>
                 </ul>

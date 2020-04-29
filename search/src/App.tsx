@@ -57,7 +57,6 @@ const App: React.FC = () => {
       <Search clickHandler={searchInputClickHandler} />
       <CountryList filteredList={filteredList} handleClick={cardClickHandler} selected={selectedCountry} />
       {flag && selectedCountry ? <Modal hide={hideModal} closeModal={closeModal} selectedCountry={selectedCountry} /> : <></>}
-      {/* <Modal flag={flag} closeModal={closeModal} selectedCountry={selectedCountry} /> */}
     </React.Fragment>
   );
 }
