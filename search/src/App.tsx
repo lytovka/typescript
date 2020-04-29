@@ -15,6 +15,7 @@ const App: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<ICountry | null>(null);
 
   const [flag, setFlag] = useState<boolean>(true);
+  const [hideModal, setHideModal] = useState<boolean>(false);
 
   const filteredList: ICountry[] = countryList.filter(c => c.name.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase()));
 
@@ -41,8 +42,13 @@ const App: React.FC = () => {
 
   const closeModal = (event: React.MouseEvent): void => {
     event.preventDefault();
-    setSelectedCountry(null);
-    setFlag(false);
+    setHideModal(true);
+
+    setTimeout(() => {
+      setSelectedCountry(null);
+      setFlag(false);
+      setHideModal(false);
+    }, 200)
   }
 
   return (
@@ -50,7 +56,7 @@ const App: React.FC = () => {
       <Navbar />
       <Search clickHandler={searchInputClickHandler} />
       <CountryList filteredList={filteredList} handleClick={cardClickHandler} selected={selectedCountry} />
-      {flag && selectedCountry ? <Modal flag={flag} closeModal={closeModal} selectedCountry={selectedCountry} /> : <></>}
+      {flag && selectedCountry ? <Modal hide={hideModal} closeModal={closeModal} selectedCountry={selectedCountry} /> : <></>}
       {/* <Modal flag={flag} closeModal={closeModal} selectedCountry={selectedCountry} /> */}
     </React.Fragment>
   );
