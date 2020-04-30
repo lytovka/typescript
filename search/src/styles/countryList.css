@@ -1,4 +1,5 @@
 .list-container{
+    padding: 0;
     display: flex;
     width: inherit;
     flex-direction: row;
